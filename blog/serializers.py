@@ -20,6 +20,8 @@ class ExpenseSerializer(serializers.ModelSerializer):
 
 
 class CashFlowSerializer(serializers.ModelSerializer):
+    net_cash_flow = serializers.ReadOnlyField()
+
     class Meta:
         model = CashFlow
-        fields = '__all__'
+        fields = ['id', 'date', 'total_sales', 'total_expenses', 'net_cash_flow']
